@@ -1,12 +1,14 @@
 server:
   port: 8001
 
+#mybatis配置
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml      # mybatis配置文件所在路径
   type-aliases-package: io.imwj.springcloud.entity        # 所有Entity别名类所在包
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
 
+#mysql数据源配置
 spring:
   application:
     name: microservicecloud-dept
@@ -27,3 +29,18 @@ logging:
   level:
     io.imwj.springcloud: debug
     io.imwj.springcloud.dao: trace
+
+#客户端注册进eureka服务列表内
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: microservicecloud
+  company.name: blog.imwj.club
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
