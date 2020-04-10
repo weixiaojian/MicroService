@@ -1,5 +1,7 @@
 package io.imwj.springcloud.config;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,5 +26,24 @@ public class ConfigBean {
     @LoadBalanced
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
+    }
+
+    /**
+     * 负载均衡：更改默认选择算法
+     * RoundRobinRule：轮询
+     * RandomRule：随机
+     * RetryRule：先按照RoundRobinRule获取服务，如果有一个服务挂掉 那么就直接跳过 不再使用挂掉的服务
+     * AvailabilityFilteringRule：根据服务是否死掉或者服务处于高并发来分配权重
+     * WeightedResponseTimeRule：根据响应时间分配权重
+     * BestAvailableRule：过滤挂掉的服务，然后选择一个并发量最小的服务
+     * ZoneAvoidanceRule：默认规则，复合判断server所在区域的性能和server的可用性来选择
+     * @return
+     */
+    @Bean
+    public IRule myRule()
+    {
+        //return new RoundRobinRule();
+        return new RandomRule();//随机算法
+        //return new RetryRule();
     }
 }

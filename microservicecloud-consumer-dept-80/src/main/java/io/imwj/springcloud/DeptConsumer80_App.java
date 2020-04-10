@@ -1,8 +1,10 @@
 package io.imwj.springcloud;
 
+import io.imwj.myrule.MySelfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 /**
  * @author langao_q
@@ -10,6 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
+@RibbonClient(name="MICROSERVICECLOUD-DEPT",configuration= MySelfRule.class)
 public class DeptConsumer80_App {
 
     public static void main(String[] args) {
