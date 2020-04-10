@@ -1,7 +1,6 @@
 package io.imwj.myrule;
 
 import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -14,6 +13,6 @@ public class MySelfRule {
     @Bean
     public IRule myRule()
     {
-        return new RandomRule_ZY();//自定义负载均衡算法实现
+        return new RandomRule_IMWJ();//自定义负载均衡算法实现
     }
 }
