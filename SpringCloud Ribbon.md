@@ -72,7 +72,8 @@ public class DeptController_Consumer {
     }
 }
 ```
-
+eureka访问：http://eureka7001.com:7001/  
+项目访问访问：http://127.0.0.1/consumer/dept/list
 * 5.小结：Ribbon和Eureka整合之后消费者可以直接调用服务 而不需要关心地址和端口号，同时能实现`客户端`的负载均衡
 
 ## Ribbon核心IRule（负载均衡算法）

@@ -1,6 +1,6 @@
 # SpringCloud Feign
->  Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单，只需要创建一个接口，然后在上面添加注解即可。
-Feign通过接口的方法调用Rest服务（之前是Ribbon+RestTemplate）
+>  Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单，只需要创建一个接口，然后在上面添加注解即可。  
+Feign通过接口的方法调用Rest服务（之前是Ribbon+RestTemplate） -适应程序员t提出的 面向接口编程
 
 ## Feign简介
 * 在使用Ribbon+RestTemplate时，利用RestTemplate对http请求的封装处理，形成了一套模版化的调用方法。
@@ -129,5 +129,9 @@ public class DeptConsumer80_Feign_App {
     }
 }
 ```
+
+* 测试
+eureka访问：http://eureka7001.com:7001/
+项目访问访问：http://127.0.0.1/consumer/dept/list
 
 
