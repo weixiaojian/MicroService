@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * @author langao_q
@@ -23,5 +24,14 @@ public class Dept implements Serializable {
     {
         super();
         this.dname = dname;
+    }
+
+    public static void main(String[] args) throws Throwable {
+        Dept dept = new Dept();
+        dept.finalize();
+        dept.clone();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("s");
+
     }
 }
